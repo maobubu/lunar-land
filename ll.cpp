@@ -15,7 +15,7 @@ GPUProgram *myGPUProgram;	// pointer to GPU program object
 
 World *world;			// the world, including landscape and lander
 
-bool pauseGame = false;			
+bool pauseGame = false;
 
 
 // Handle a keypress
@@ -25,23 +25,23 @@ void keyCallback( GLFWwindow *w, int key, int scancode, int action, int mods )
 
 {
   if (action == GLFW_PRESS)
-    
+
     if (key == GLFW_KEY_ESCAPE)	// quit upon ESC
       exit(0);
 
     else if (key == 'P')	// p = pause
       pauseGame = !pauseGame;
-	
+
 	else if (key == 'R') {	// r = reset lander
 		pauseGame = false;	 // this allows the game reset derictly from paused game
 		world->resetLander();//	reset
-		
+
 	}
-	  
+
 
 	else if (key == 'H') 	// ? = output help
 		cout << "help" << endl;
-	
+
 }
 
 
@@ -54,7 +54,7 @@ void errorCallback( int error, const char* description )
 }
 
 
-  
+
 // Main program
 
 
@@ -66,10 +66,10 @@ int main( int argc, char **argv )
   GLFWwindow* window;
 
   // glfwSetErrorCallback( errorCallback );
-  
+
   if (!glfwInit())
     return 1;
-  
+
   // Open window (ask for OpenGL ES 3.0 or better)
 
   glfwWindowHint( GLFW_CLIENT_API, GLFW_OPENGL_API );
@@ -77,16 +77,16 @@ int main( int argc, char **argv )
   glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 0 );
 
   window = glfwCreateWindow( SCREEN_ASPECT * SCREEN_WIDTH, SCREEN_WIDTH, "Lunar Lander", NULL, NULL);
-  
+
   if (!window) {
     glfwTerminate();
     return 1;
   }
 
   glfwMakeContextCurrent( window );
-  
+
   glfwSwapInterval( 1 ); // redraw at most every 1 screen scan
-  
+
   // Set OpenGL function bindings
 
   gladLoadGLLoader( (GLADloadproc) glfwGetProcAddress );
@@ -94,7 +94,7 @@ int main( int argc, char **argv )
   // Set up callbacks
 
   glfwSetKeyCallback( window, keyCallback );
-  
+
   // Set up shaders
 
   myGPUProgram = new GPUProgram( "ll.vert", "ll.frag" );
@@ -129,7 +129,7 @@ int main( int argc, char **argv )
     world->draw();
 
     glfwSwapBuffers( window );
-    
+
     // Check for new events
 
     glfwPollEvents();

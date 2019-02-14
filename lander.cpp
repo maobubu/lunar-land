@@ -16,10 +16,10 @@
 
 #define ROTATION_SPEED 0.4	          // upon sidewise thrust, rotation speed in radians/second
 #define THRUST_ACCEL 4.0                  // upon main thrust, acceleration in m/s/s
-#define GRAVITY vec3( 0, -1.6, 0 ) // gravity acceleration on the moon is 1.6 m/s/s 
+#define GRAVITY vec3( 0, -1.6, 0 ) // gravity acceleration on the moon is 1.6 m/s/s
 #define LANDER_WIDTH 6.7                  // the real lander is about 6.7 m wide
 #define FEUL_DECREASE 13.0			//the feul decrease,3 galon/s
-#define SCORE_DECREASE 0.075			// The decrease of score.
+#define SCORE_DECREASE 0.75			// The decrease of score.
 // I changed the gravity!!
 
 // Set up the lander by creating a VAO and rewriting the lander
@@ -45,7 +45,7 @@ void Lander::setupVAO()
   }
 
   numSegments = i/2;		// number of segments in the lander model
- 
+
   // Rewrite the model vertices so that the lander is centred at (0,0)
   // and has width LANDER_WIDTH.
   //
@@ -53,9 +53,9 @@ void Lander::setupVAO()
   // in a coordinate system with y increasing downward.
 
   float s = LANDER_WIDTH / (max.x - min.x);
- 
+
   mat4 modelToOriginTransform = scale( s, -s, 1 ) * translate( -(min.x+max.x)/2, -(min.y+max.y)/2, 0 );
-  
+
 
   for (int i=0; landerVerts[i] != -1; i+=2) {
     vec4 newV = modelToOriginTransform * vec4( landerVerts[i], landerVerts[i+1], 0.0, 1.0 );
@@ -64,7 +64,7 @@ void Lander::setupVAO()
   }
   temp = vec4(0.5*(min.x + max.x), min.y, 0.0, 1.0);
   temp = modelToOriginTransform * temp;
-  
+
 
   // ---- Create a VAO for this object ----
   glGenVertexArrays( 1, &VAO );
@@ -100,7 +100,7 @@ void Lander::draw( mat4 &worldToViewTransform )
   glLineWidth( 2.0 );
 
   glDrawArrays( GL_LINE_STRIP, 0, numSegments );
-  
+
   // YOUR CODE HERE
 
 }
@@ -120,7 +120,7 @@ void Lander::updatePose( float deltaT )
 
 
   // wrap around screen
- 
+
   if (position.x > world->maxX() + 10)
     position.x = world->minX() - 10;
   else if (position.x < world->minX() - 10)

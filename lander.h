@@ -14,7 +14,7 @@ class Lander {
 
   static float landerVerts[];	// lander segments as vertex pairs
   int numSegments;		// number of line segments in the lander model
-  
+
   GLuint VAO;			// VAO for lander geometry
 
   vec3 position;		// position in world coordinates (m)
@@ -34,12 +34,12 @@ class Lander {
 
   Lander( float maxX, float maxY ) {
     worldMaxX = maxX;
-    worldMaxY = maxY;	
+    worldMaxY = maxY;
     reset();
     setupVAO();
   };
 
-  void setupVAO();  
+  void setupVAO();
 
   void draw( mat4 &worldToViewTransform );
 
@@ -51,7 +51,7 @@ class Lander {
 	t1 = clock();			//set a start rpclock
     orientation = 0;
     angularVelocity = 0;
-	feul=120;			//change the feul 
+	feul=120;			//change the feul
 	Score = 2000;		//change the score
 
   }
@@ -69,7 +69,7 @@ class Lander {
   float feul_ammount() { return feul; }
   int Score_ammount() { return Score; }
   float start() { return t1; }
- 
+
   float speed() { return velocity.length(); }
 };
 
