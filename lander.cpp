@@ -112,10 +112,11 @@ void Lander::draw( mat4 &worldToViewTransform )
 void Lander::updatePose( float deltaT )
 
 {
+  //cout<<deltaT<<endl;
   position    = position    + deltaT * velocity;           // first-order approximations
   orientation = orientation + deltaT * angularVelocity;
   velocity = velocity + deltaT * GRAVITY;
-  Score = Score - deltaT* SCORE_DECREASE;
+  Score = Score;// - deltaT* SCORE_DECREASE;
   bottom = position - vec3(temp.x, temp.y, 0.0);//use center to minus the temp to get the middle bottom value
 
 

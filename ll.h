@@ -3,7 +3,6 @@
 #ifndef LL_H
 #define LL_H
 
-
 class GPUProgram;
 extern GPUProgram *myGPUProgram;
 

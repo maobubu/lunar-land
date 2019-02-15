@@ -1,22 +1,23 @@
 LDFLAGS = -L. -lglfw -lGL -ldl # -lpthread
 CXXFLAGS = -g -Wall -Wno-write-strings -Wno-parentheses -DLINUX #-pthread
 
-OBJS = linalg.o ll.o world.o lander.o landscape.o gpuProgram.o strokefont.o fg_stroke.o glad/src/glad.o 
+OBJS = linalg.o ll.o world.o lander.o landscape.o gpuProgram.o strokefont.o fg_stroke.o glad/src/glad.o
 EXEC = ll
+
 
 all:    $(EXEC)
 
 ll:	$(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJS)  $(LDFLAGS) 
+	$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJS) $(LDFLAGS)
 
 clean:
-	rm -f  *~ $(EXEC) $(OBJS)
+	rm -f $(EXEC) $(OBJS)
 
-depend:	
+depend:
 	makedepend -Y *.h *.cpp 2> /dev/null
 
 # DO NOT DELETE
-
+# Must remake when these header changes
 gpuProgram.o: headers.h glad/include/glad/glad.h linalg.h
 headers.o: glad/include/glad/glad.h linalg.h
 lander.o: headers.h glad/include/glad/glad.h linalg.h

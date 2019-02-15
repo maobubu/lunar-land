@@ -17,29 +17,29 @@ void World::updateState( float elapsedTime )
 
 {
   // See if any keys are pressed for thrust
-	
+
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) { // right arrow
 		lander->rotateCW(elapsedTime);
-		cout << "right" << endl;
+		//cout << "right" << endl;
 	}
- 
+
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) { // left arrow
 		lander->rotateCCW(elapsedTime);
-		cout << "left" << endl;
+		//cout << "left" << endl;
 	}
-	
+
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) { // down arrow
 		if (lander->feul_ammount() > 0) {
 			lander->addThrust(elapsedTime);
 			lander->feul_decrease(elapsedTime);
 		}
-		cout << "down" << endl;
+		//cout << "down" << endl;
 	}
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) { // down arrow
 		lander->Spin(elapsedTime);
-		cout << "up" << endl;
+		//cout << "up" << endl;
 	}
-  
+
   // Update the position and velocity
 
   lander->updatePose( elapsedTime );
@@ -52,17 +52,17 @@ void World::updateState( float elapsedTime )
   // Find if the view should be zoomed
 
   zoomView = (closestDistance < ZOOM_RADIUS);
- 
+
   if (altitude <= 12.0||lander->Score_ammount()==0)
   {
 	  gameover = true;
-	  cout << "game over" << endl;
+	  //cout << "game over" << endl;
   }
   else gameover = false;
- 
+
   // Check for landing or collision and let the user know
   // YOUR CODE HERE
- 
+
 }
 
 
@@ -96,10 +96,10 @@ void World::draw()
 		* scale(s, s, 1)
 		*translate(-lander->centrePosition().x + ZOOM_WIDTH/ 2, -lander->centrePosition().y+ZOOM_WIDTH/2, 0);
 	//translate(-lander->centrePosition().x + (landscape->maxX() + landscape->minX()) / 2, -lander->centrePosition().y+(maxY()+minY())/2, 0);
-	
+
 	// calculate the diffenrence between middle of the object and the center of the world cordinate system
-		
-		
+
+
     // Find the world-to-view transform that is centred on the lander
     // and is ZOOM_WIDTH wide (in world coordinates).
 
@@ -113,8 +113,8 @@ void World::draw()
   landscape->draw( worldToViewTransform);
   lander->draw( worldToViewTransform );
 
- 
-  
+
+
 
   // Draw the heads-up display (i.e. all text).
 
@@ -143,7 +143,7 @@ void World::draw()
   ss << "SPEED " << lander->speed()<< " m/s";
   ss << " Hor up " << lander->horizontal() << " m/s";
   ss << " Vert -> " << -lander->vertical() << " m/s";
-  
+
   drawStrokeString( ss.str(), -0.95, 0.75, 0.06, glGetUniformLocation( myGPUProgram->id(), "MVP") );
   sf << "SCORE " << score << " p";
   sf << "TIME " << (clock() - lander->start()) / CLOCKS_PER_SEC << " s ";//set a end clock and minus the start clock
@@ -154,6 +154,6 @@ void World::draw()
   if(lander->feul_ammount()>0) drawStrokeString(sd.str(), -0.95, 0.55, 0.06, glGetUniformLocation(myGPUProgram->id(), "MVP"));
   else drawStrokeString("WARNING!! RUNNING OUT OF FEUL, THRUST IS DISABLED", -0.95, 0.55, 0.05, glGetUniformLocation(myGPUProgram->id(), "MVP"));
 
-  
+
   // YOUR CODE HERE (modify the above code, too)
 }
