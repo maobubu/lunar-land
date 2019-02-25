@@ -34,11 +34,11 @@ void Landscape::setupVAO()
     numVerts++;
   }
   //found vector min and vector max
- 
+
 
   // Translate the landscape so that its lower-left corner is at (0,0)
   // and its width is LANDSCAPE_WIDTH and y increases upward.
-  // 
+  //
   // Note that y increases downward in the model, so the y axis must
   // be inverted.
 
@@ -65,7 +65,7 @@ void Landscape::setupVAO()
     landscapeVerts[i+1] = newV.y / newV.w;
 
     // prevent the landscape from going backward
-    
+
     if (landscapeVerts[i] < prevX)
       landscapeVerts[i] = prevX;
 
@@ -125,7 +125,7 @@ vec3 Landscape::findClosestPoint( vec3 position, vec3 segTail, vec3 segHead )
 	float seg_length = sqrt(v.x*v.x + v.y*v.y);
 	v = (1/seg_length) * v;
 	float result= u.x*v.x+ u.y*v.y;
-  // YOUR CODE HERE
+
 	if (result > seg_length) perpen = segHead;
 	else if (result < 0) perpen = segTail;
 	else perpen = result * v+segTail;
@@ -188,7 +188,7 @@ vec3 Landscape::findClosestPoint( vec3 position )//returns the space ships posit
 }
 
 
-  
+
 // Landscape model consisting of a path of segments
 //
 // These are in a ARBITRARY coordinate system and get remapped to the
