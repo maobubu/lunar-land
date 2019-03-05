@@ -81,7 +81,7 @@ void Lander::setupVAO()
 
   glEnableVertexAttribArray( 0 );
   glVertexAttribPointer( 0, 2, GL_FLOAT, GL_FALSE, 0, 0 );
-  // YOUR CODE HERE
+
 }
 
 
@@ -101,7 +101,7 @@ void Lander::draw( mat4 &worldToViewTransform )
 
   glDrawArrays( GL_LINE_STRIP, 0, numSegments );
 
-  // YOUR CODE HERE
+
 
 }
 
@@ -151,21 +151,21 @@ void Lander::addThrust( float deltaT )
 {
 	vec3 ff = vec3(THRUST_ACCEL*deltaT*sin(orientation)*velocity.x, THRUST_ACCEL*deltaT*cos(orientation)*velocity.y, 0);
 	velocity= velocity-ff;
-  // YOUR CODE HERE
+
 }
 //new feature!!
 void Lander::Spin(float deltaT)
 
 {
 	orientation +=THRUST_ACCEL*deltaT;
-	// YOUR CODE HERE
+
 }
 
 void Lander::feul_decrease(float deltaT)
 
 {
 	feul -= FEUL_DECREASE * deltaT;
-	// YOUR CODE HERE
+
 }
 
 

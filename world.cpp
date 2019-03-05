@@ -61,7 +61,7 @@ void World::updateState( float elapsedTime )
   else gameover = false;
 
   // Check for landing or collision and let the user know
-  // YOUR CODE HERE
+
 
 }
 
@@ -103,7 +103,7 @@ void World::draw()
     // Find the world-to-view transform that is centred on the lander
     // and is ZOOM_WIDTH wide (in world coordinates).
 
-    // YOUR CODE HERE
+
   }
 
   // Draw the landscape and lander, passing in the worldToViewTransform
@@ -155,5 +155,5 @@ void World::draw()
   else drawStrokeString("WARNING!! RUNNING OUT OF FEUL, THRUST IS DISABLED", -0.95, 0.55, 0.05, glGetUniformLocation(myGPUProgram->id(), "MVP"));
 
 
-  // YOUR CODE HERE (modify the above code, too)
+   (modify the above code, too)
 }
