@@ -155,5 +155,5 @@ void World::draw()
   else drawStrokeString("WARNING!! RUNNING OUT OF FEUL, THRUST IS DISABLED", -0.95, 0.55, 0.05, glGetUniformLocation(myGPUProgram->id(), "MVP"));
 
 
-   (modify the above code, too)
+   //(modify the above code, too)
 }
