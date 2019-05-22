@@ -1,9 +1,14 @@
 # This is an implementation of the lunar land game with C++
 
+
+## Install dependencies
+```
+libglfw libGL(from nvidia) libc6
+```
 ## Build the code and run the game
 ```
 make
-./ll
+./lunar
 ```
 
 ## Game features
