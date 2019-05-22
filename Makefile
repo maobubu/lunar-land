@@ -2,19 +2,25 @@ LDFLAGS = -L. -lglfw -lGL -ldl # -lpthread
 CXXFLAGS = -g -Wall -Wno-write-strings -Wno-parentheses -DLINUX #-pthread
 
 OBJS = linalg.o ll.o world.o lander.o landscape.o gpuProgram.o strokefont.o fg_stroke.o glad/src/glad.o
-EXEC = ll
+EXEC = lunar
 
+ifeq ($(PREFIX),)
+	PREFIX := /usr/local
+endif
 
 all:    $(EXEC)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-ll:	$(OBJS)
+lunar:	$(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 clean:
 	rm -f $(EXEC) $(OBJS)
+
+install: all
+	install -m 111 --owner=root --group=root lunar $(PREFIX)/bin/
 
 depend:
 	makedepend -Y *.h *.cpp 2> /dev/null
