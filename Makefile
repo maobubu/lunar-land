@@ -5,7 +5,7 @@ OBJS = linalg.o ll.o world.o lander.o landscape.o gpuProgram.o strokefont.o fg_s
 EXEC = lunar
 
 ifeq ($(PREFIX),)
-	PREFIX := /usr/local
+	PREFIX := /usr/local/bin
 endif
 
 all:    $(EXEC)
@@ -20,10 +20,13 @@ clean:
 	rm -f $(EXEC) $(OBJS)
 
 install: all
-	install -m 111 --owner=root --group=root lunar $(PREFIX)/bin/
+	install -D lunar $(DESTDIR)$(PREFIX)/lunar
+	#install -m 111 --owner=root --group=root lunar $(PREFIX)/
 
 depend:
 	makedepend -Y *.h *.cpp 2> /dev/null
+
+.PHONY : all install depend clean
 
 # DO NOT DELETE
 # Must remake when these header changes

@@ -1,0 +1,13 @@
+Package: lunar-land-dbgsym
+Package-Type: ddeb
+Source: lunar-land
+Version: 1.0-1ubuntu1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Huicheng Liu <huicheng.liu@queensu.ca>
+Installed-Size: 535
+Depends: lunar-land (= 1.0-1ubuntu1)
+Section: debug
+Priority: optional
+Description: debug symbols for lunar-land
+Build-Ids: 2c8649ef1ae0201705cc15751e814c3a024dbce7

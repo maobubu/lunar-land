@@ -1,0 +1,21 @@
+Source: lunar-land
+Section: misc
+Priority: optional
+Maintainer: Huicheng Liu <huicheng.liu@queensu.ca>
+Build-Depends: debhelper (>= 10) , libglfw3-dev
+Standards-Version: 4.1.2
+Homepage: https://maobubu.github.io
+Vcs-Git: https://github.com/maobubu/lunar-land.git
+Vcs-Browser: https://github.com/maobubu/lunar-land.git
+
+Package: lunar-land
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A lunar land game
+    This is a lunar land game made with C++ and OpenGl
+# used to build multiple debian package
+#Package: lunar-land-source
+#Architecture: all
+#Depends: debhelper (>= 10), make, bzip2
+#Description: Source for the ipt-netflow kernel module
+# This package provides the source code for the lunar-land

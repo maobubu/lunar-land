@@ -1,0 +1,12 @@
+lunar-land (1.0-1ubuntu1) unstable; urgency=medium
+
+  * second release
+
+ -- Huicheng Liu <huicheng.liu@queensu.ca>  Wed, 29 May 2019 16:04:07 -0400
+
+lunar-land (1.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #123456)
+  * The lunar land game
+
+ -- Huicheng Liu <huicheng.liu@queensu.ca>  Wed, 22 May 2019 17:18:31 -0400

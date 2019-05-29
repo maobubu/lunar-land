@@ -1,0 +1,11 @@
+Package: lunar-land
+Version: 1.0-1ubuntu1
+Architecture: amd64
+Maintainer: Huicheng Liu <huicheng.liu@queensu.ca>
+Installed-Size: 272
+Depends: libc6 (>= 2.7), libgcc1 (>= 1:3.0), libglfw3 (>= 3.0), libstdc++6 (>= 5.2)
+Section: misc
+Priority: optional
+Homepage: https://maobubu.github.io
+Description: A lunar land game
+    This is a lunar land game made with C++ and OpenGl
